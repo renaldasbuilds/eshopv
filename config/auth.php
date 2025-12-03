@@ -112,4 +112,14 @@ return [
 
     'password_timeout' => env('AUTH_PASSWORD_TIMEOUT', 10800),
 
+
+     /*
+    |--------------------------------------------------------------------------
+    | Admin register true/false leidimai
+    |--------------------------------------------------------------------------
+    |
+    */
+
+    'admin_register' => env('ADMIN_REGISTER', 1),
+
 ];

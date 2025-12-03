@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin</title>
+    <title>{{ $settings->meta_title ?? 'Pavadinimas' }}</title>
     @vite(['resources/css/app.css','resources/js/app.js'])
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,17 +11,15 @@
     <link 
         href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" 
         rel="stylesheet"
-    />    
+    />
+    
 </head>
 <body>
-    <div class="min-h-screen bg-gray-300">
-        <!-- admin sidebar -->        
-        @include('admin.components.sidebar')
+    <div class="min-h-screen bg-gray-300"> 
         <!-- main content -->
-        <main class="ml-64 p-6">
+        <main class="min-h-[50vh] pt-8 md:pt-28">
             @yield('content')
         </main>
-
     </div>    
 </body>
 </html>

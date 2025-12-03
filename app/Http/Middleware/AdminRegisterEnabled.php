@@ -6,9 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-use App\Models\User;
-
-class AdminOnly
+class AdminRegisterEnabled
 {
     /**
      * Handle an incoming request.
@@ -17,8 +15,8 @@ class AdminOnly
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(!auth()->check() || auth()->user()->is_admin != true) {
-            return redirect()->route('/');
+        if(!config('auth.admin_register')) {
+            abort(403,'Registracija išjungta');
         }
         return $next($request);
     }

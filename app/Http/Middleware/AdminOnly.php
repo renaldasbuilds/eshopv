@@ -18,7 +18,7 @@ class AdminOnly
     public function handle(Request $request, Closure $next): Response
     {
         if(!auth()->check() || auth()->user()->is_admin != true) {
-            return redirect()->route('/');
+            abort(403);
         }
         return $next($request);
     }

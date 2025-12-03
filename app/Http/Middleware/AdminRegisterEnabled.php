@@ -16,7 +16,7 @@ class AdminRegisterEnabled
     public function handle(Request $request, Closure $next): Response
     {
         if(!config('auth.admin_register')) {
-            abort(403,'Registracija išjungta');
+            abort(403);
         }
         return $next($request);
     }

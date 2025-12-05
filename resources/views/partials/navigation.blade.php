@@ -3,8 +3,7 @@
         <div class="flex items-center justify-between w-full sm:h-24 md:h-35">
             <!-- Logo -->
             <a href="/" class="flex items-center">
-                <img src="/storage/logo_test.png" alt="Logo" 
-                    class="h-8 sm:h-12 md:h-16 w-auto">
+                <img src="{{ asset('storage/'. $settings->logo_path) }}" class="w-12 md:w-30 h-auto" alt="Logo" 
             </a>
 
             <!-- Navigacija -->

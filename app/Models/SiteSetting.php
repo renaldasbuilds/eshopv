@@ -13,13 +13,18 @@ class SiteSetting extends Model
         'header_top',
         'hero_text',
         'logo_path',
-        'heading_1' , 
-        'heading_2' , 
+        'heading_1',
+        'heading_2',
         'heading_3',
         'footer_text',
-        'phone' , 'email' , 'address' , 'city' , 'country',
+        'phone',
+        'email',
+        'address',
+        'city',
+        'country',
         'working_hours',
-        'facebook' , 'instagram' , 'tiktok',  // socials
+        'facebook',
+        'instagram',
+        'tiktok',
     ];
 }
-

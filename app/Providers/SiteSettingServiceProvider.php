@@ -26,7 +26,7 @@ class SiteSettingServiceProvider extends ServiceProvider
         // Puslapio nustatymai 
         if(Schema::hasTable('site_settings')) {
             $settings = Cache::rememberForever('site_settings', function () {
-                SiteSetting::where('id', 1)->get();
+                return SiteSetting::first();
             });
             View::share('settings' , $settings);
         }

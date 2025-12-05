@@ -37,7 +37,7 @@ Route::middleware(['auth','admin'])->group(function () {
     Route::get('/admin/atsijungti' ,[AuthControllerForAdmin::class,'logout'])->name('admin.logout');
 
      /* ===== puslapio nustatymai ===== */
-    Route::get('/admin/nustatymai' ,[SettingsControllerForAdmin::class,'index'])->name('admin.site_settings');
-    Route::put('/admin/nustatymai/atnaujint' , [SettingsControllerForAdmin::class,'update'])->name('admin.site_settings.update');
+    Route::get('/admin/nustatymai' ,            [SettingsControllerForAdmin::class,'index'])->name('admin.site_settings');
+    Route::put('/admin/nustatymai/atnaujinti' , [SettingsControllerForAdmin::class,'update'])->name('admin.site_settings.update');
         
 });

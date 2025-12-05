@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use Illuminate\Support\Facades\Password;
+use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rules\Password;
 use Illuminate\Support\Facades\Hash;                      
 use Illuminate\Support\Facades\Auth; 
 
@@ -24,12 +25,41 @@ class AuthController extends Controller
         | */
         return view('admin.auth.register');
     }
-    public function register_store(Request $request) {
+    public function logout(Request $request){
 
-        if(Auth::check()) {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect()
+                ->route('home.index')
+                ->with('success','Sėkmingai atsijungta');
+    }
+    public function login_store(Request $request) { 
+        $data = $request->validate([
+            'email'    => ['required','email'],
+            'password' => ['required']
+        ]);
+
+        if(Auth::attempt($data)) {
+            $request->session()->regenerate();
             return redirect()
                     ->route('admin.index')
-                    ->with('success','Jūs jau užsiregistravęs.');
+                    ->with('success','Prisijungta!');
+        }
+        
+        return redirect()
+                ->back()
+                ->with('error','Neteisingi prisijungimo duomenys!');
+
+    }
+    public function register_store(Request $request) {
+
+        $user = Auth::user();
+        if($user && $user->is_admin) {
+            return redirect()
+                    ->route('admin.index')
+                    ->with('warning','Jūs jau užsiregistravęs.');
         }
 
         $data = $request->validate([

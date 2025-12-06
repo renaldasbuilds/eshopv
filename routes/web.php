@@ -11,7 +11,7 @@ use App\Http\Controllers\Admin\HomeController as HomeControllerForAdmin;
 use App\Http\Controllers\Admin\AuthController as AuthControllerForAdmin; 
 use App\Http\Controllers\Admin\SettingsController as SettingsControllerForAdmin;
 
-
+use App\Http\Controllers\Admin\CategoryController as CategoryControllerForAdmin;
 
  /* ========= main ========= */
 Route::get('/', [HomeControllerForFront::class,'index'])->name('home.index');
@@ -39,5 +39,11 @@ Route::middleware(['auth','admin'])->group(function () {
      /* ===== puslapio nustatymai ===== */
     Route::get('/admin/nustatymai' ,            [SettingsControllerForAdmin::class,'index'])->name('admin.site_settings');
     Route::put('/admin/nustatymai/atnaujinti' , [SettingsControllerForAdmin::class,'update'])->name('admin.site_settings.update');
-        
+
+    /* ===== prekiu kategorijos ===== */
+
+    Route::get('/admin/kategorijos',                  [CategoryControllerForAdmin::class,'index'])->name('admin.category.index');
+    Route::get('/admin/kategorijos/prideti',          [CategoryControllerForAdmin::class,'create'])->name('admin.category.create');
+    Route::get('/admin/kategorijos/store',            [CategoryControllerForAdmin::class,'create'])->name('admin.category.store');
+    Route::delete('/admin/kategorijos/istrinti/{id}', [CategoryControllerForAdmin::class,'destroy'])->name('admin.category.destroy');
 });

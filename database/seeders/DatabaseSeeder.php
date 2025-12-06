@@ -17,7 +17,11 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
 
        $this->call([
-            SiteSettingsSeeder::class
+        // 1 ID seederiai
+            SiteSettingsSeeder::class,
+            CategorySeeder::class,
+            MaterialSeeder::class,
+            ColorSeeder::class,
        ]);
     }
 }

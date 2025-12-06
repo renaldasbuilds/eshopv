@@ -3,7 +3,7 @@
 @section('content')
 
 
-<div class="w-full max-w-4xl mx-auto  bg-gray-50 rounded-md p-30 space-y-5">
+<div class="w-full mx-auto bg-gray-50 rounded-md p-30 space-y-5">
     <h1 class="text-2xl font-semibold">
         Pagrindiniai puslapio nustatymai
     </h1>

@@ -11,12 +11,23 @@
         <li class="block p-3 rounded-md hover:bg-gray-900 background:bg-white">
             <a href="{{ route('admin.index') }}">Pagrindinis</a>
         </li>
+        <li class="block p-3 rounded-md hover:bg-gray-900 active:bg-gray-800">
+            <a href="#">Užsakymai</a>
+        </li>
          <li class="block p-3 rounded-md hover:bg-gray-900 active:bg-gray-800">
             <a href="#">Prekės</a>
         </li>
 
         <li class="block p-3 rounded-md hover:bg-gray-900 active:bg-gray-800">
-            <a href="#">Kategorijos</a>
+            <a href="{{ route('admin.category.index') }}">Prekių kategorijos</a>
+        </li>
+
+        <li class="block p-3 rounded-md hover:bg-gray-900 active:bg-gray-800">
+            <a href="#">Prekių medžiagos</a>
+        </li>
+
+        <li class="block p-3 rounded-md hover:bg-gray-900 active:bg-gray-800">
+            <a href="#">Prekių spalvos</a>
         </li>
 
          <li class="block p-3 rounded-md hover:bg-gray-900 active:bg-gray-800">

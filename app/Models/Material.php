@@ -6,5 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Material extends Model
 {
-    //
+    protected $fillable = [
+        'title',
+        'description',
+        'is_active',
+        'sort_order',
+    ];
+
+    protected $casts = [
+        'is_active'  => 'boolean',
+        'sort_order' => 'integer'
+    ];
+
+    public function products() {
+        return $this->hasMany(Product::class);
+    }
 }

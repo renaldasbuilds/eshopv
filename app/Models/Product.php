@@ -15,9 +15,9 @@ class Product extends Model
         'price_cents',
         'price_discount',
         'stock',
-        'category_id',
-        'color_id',
-        'material_id'
+        'category_id',      // belongsTo -> Category
+        'color_id',         // belongsTo -> Color
+        'material_id'       // belongsTo -> Material
     ];
 
     protected $casts = [
@@ -25,7 +25,11 @@ class Product extends Model
         'is_featured'   => 'boolean',
         'price_cents'   => 'integer',
         'price_discount'=> 'integer',
-        'stock'         => 'integer'
+        'stock'         => 'integer',
+
+        'category_id' => 'integer',
+        'color_id'    => 'integer',
+        'material_id' => 'integer',
     ];
 
     public function getRouteKeyName(): string
@@ -52,10 +56,8 @@ class Product extends Model
     public function images() {
         return $this->hasMany(Images::class);
     }
-    public function coverIamge() {
+    public function coverImage() {
         return $this->hasOne(Image::class)
             ->where('is_cover', true);
     }
-
-
 }

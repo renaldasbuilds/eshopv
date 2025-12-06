@@ -1,9 +1,9 @@
-<header class="w-full bg-red-100">
+<header class="w-full bg-green-100">
     <div class="mx-auto max-w-6xl">
         <div class="flex items-center justify-between w-full sm:h-24 md:h-35">
             <!-- Logo -->
             <a href="/" class="flex items-center">
-                <img src="{{ asset('storage/'. $settings->logo_path) }}" class="w-12 md:w-30 h-auto" alt="Logo" 
+                <img src="{{ asset('storage/'. $settings->logo_path) }}" class="w-12 md:w-30 h-auto" alt="Logo"> 
             </a>
 
             <!-- Navigacija -->

@@ -1,12 +1,9 @@
-<aside class="fixed top-0 left-0 h-full w-64 bg-bray-900 text-white bg-gray-600">
-    <div class="p-2">
-            @php
-                $url = config('app.url');
-            @endphp   
-            <p>Pagrindinis:</p>
-            <a href="{{ route('home.index') }}" class="text-sm hover:underline">
-                {{ $url }}
-            </a>
+<aside class="fixed top-0 left-0 h-full w-64 bg-bray-900 text-white bg-gray-800">
+    <div class="p-2 border-b border-white flex justify-center">
+        <a href="{{ route('home.index') }}">
+            <img src="{{ asset('storage/'. $settings->logo_path) }}" class="w-8 md:w-16 h-auto">
+            <p class="text-sm mt-1">{{ $settings->site_name }}</p>
+        </a>
     </div>    
     <nav class="p-6">
       <ul class="flex flex-col gap-2">

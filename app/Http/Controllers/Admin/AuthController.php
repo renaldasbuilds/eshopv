@@ -50,7 +50,8 @@ class AuthController extends Controller
         
         return redirect()
                 ->back()
-                ->with('error','Neteisingi prisijungimo duomenys!');
+                ->withErrors(['email' => 'Neteisingi prisijungimo duomenys!'])
+                ->onlyInput('email');
 
     }
     public function register_store(Request $request) {

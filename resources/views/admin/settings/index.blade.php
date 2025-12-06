@@ -8,14 +8,13 @@
         Pagrindiniai puslapio nustatymai
     </h1>
 
-    {{-- Sėkmės žinutė --}}
+    <!-- žinutės -->
     @if(session('success'))
         <div id="success" class="bg-green-100 text-green-800 text-sm p-3 rounded">
             {{ session('success') }}
         </div>
     @endif
 
-    {{-- Validacijos klaidos --}}
     @if ($errors->any())
         <div id="error" class="bg-red-100 text-red-800 text-sm p-3 rounded">
             <p class="font-semibold mb-1">Yra klaidų formoje:</p>
@@ -26,6 +25,8 @@
             </ul>
         </div>
     @endif
+
+    <!--------------------------------------------------------------------------------->
 
     <form action="{{ route('admin.site_settings.update') }}"
           method="POST"

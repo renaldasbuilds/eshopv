@@ -15,7 +15,7 @@
     
 </head>
 <body>
-    <div class="min-h-screen bg-red-100">
+    <div class="min-h-screen bg-green-100">
         <!-- top -->
         @include('partials.header')
         @include('partials.navigation')

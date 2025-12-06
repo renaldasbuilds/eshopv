@@ -2,10 +2,23 @@
 @section('content')
 <div class="flex items-center justify-center">
     <div class="w-full max-w-md rounded-2xl border bg-white p-8 shadow-sm">
-        <p class="text-center text-xl text-gray-600">Registracija</p>
-        <div class="flex items-center">
-            <img src="{{ asset('storage/'. ($settings->logo_path ?? 'logo_test.png') }}" class="h-35 w-auto" alt="logo">
+        <div class="flex justify-center mt-2">
+            <img src="{{ asset('storage/'. $settings->logo_path) }}" class="w-30 h-auto" alt="logo">
         </div>
+        <p class="text-center text-xl text-gray-600 mt-4">Registracija</p>
+
+        <!-- error -->
+        @if ($errors->any())
+            <div id="error" class="bg-red-100 text-red-800 text-sm p-3 rounded">
+                <p class="font-semibold mb-1">Klaidos:</p>
+                <ul class="list-disc list-inside space-y-0.5">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         <form method="POST" action="{{ route('register.store') }}" class="p-10">
         @csrf
             <div>
@@ -41,10 +54,23 @@
                             class="w-full rounded-md border px-3 py-2 text-sm shadow-sm focus:border-brand-600 focus:ring-1 focus:ring-brand-600">
             </div>
             <button type="submit"
-                    class="w-full mt-8 rounded-lg text-gray-300 bg-gray-900 p-2 hover:bg-gray-500 bg-gray-900 hover:bg-gray-700">
+                    class="w-full cursor-pointer mt-8 rounded-lg text-gray-300 bg-gray-900 p-2 hover:bg-gray-500 bg-gray-900 hover:bg-gray-700">
                  Registruotis
             </button>
         </form>
     </div>   
 </div>
+
+<script>
+    window.addEventListener("load", () => {
+        const error = document.getElementById("error");
+
+        if(error){
+            setTimeout(() => {
+                error.remove();
+            }, 5000 );
+        }
+    });
+</script>
+
 @endsection
